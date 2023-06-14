@@ -1,0 +1,50 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item> <!-- The color of the app bar -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>  <!-- The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary -->
+        <item name="colorSecondary">#03DAC5</item>
+        <item name="colorSecondaryVariant">#03DAC5</item>
+        <item name="colorAccent">@color/colorAccent</item> <!-- The color of UI controls such as check boxes, radio buttons, and edit text boxes -->
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <!-- statusBarColor – The color of the status bar. -->
+        <!-- navigationBarColor – The color of the navigation bar -->
+    </style>
+
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="hintTextColor">@color/colorBlack</item>
+        <item name="boxStrokeColor">@color/colorBlack</item>
+        <item name="android:textColorHint">#6B000000</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
+        <item name="colorOnSurface">@color/colorWhite</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout.Outlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout.Outlined</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout.Outlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
+    </style>
+
+    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/rubik</item>
+        <item name="android:fontFamily">@font/rubik</item>
+    </style>
+
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/rubik</item>
+        <item name="android:fontFamily">@font/rubik</item>
+    </style>
+
+</resources>

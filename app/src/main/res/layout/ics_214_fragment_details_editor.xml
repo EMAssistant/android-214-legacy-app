@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="o"
+    tools:ignore="RtlSymmetry">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.randomvoids.emassistant.view.ui.icsformeditors.ics214.ICS214EditorViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".MainActivity">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginBottom="56dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/incident_name_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:endIconMode="clear_text"
+                style="@style/Widget.App.TextInputLayout.Outlined"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/incident_name_max_length"
+                android:hint="@string/ics_incident_name_title">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="@integer/incident_name_max_length"
+                    android:text="@={viewModel.ics214LiveData.incident.incidentName}"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/team_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/incident_name_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:endIconMode="clear_text"
+                style="@style/Widget.App.TextInputLayout.Outlined"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/ics214_team_name_max_length"
+                android:hint="@string/ics_team_name_title">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="@integer/ics214_team_name_max_length"
+                    android:text="@={viewModel.ics214LiveData.ics214Details.teamName}"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/team_ics_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:endIconMode="clear_text"
+                style="@style/Widget.App.TextInputLayout.Outlined"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/ics214_team_ics_position_max_length"
+                android:hint="@string/team_ics_position">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="@integer/ics214_team_ics_position_max_length"
+                    android:text="@={viewModel.ics214LiveData.ics214Details.teamIcsPosition}"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ics214_home_agency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_ics_position"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:endIconMode="clear_text"
+                style="@style/Widget.App.TextInputLayout.Outlined"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/ics214_team_home_agency_max_length"
+                android:hint="@string/home_agency">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="@integer/ics214_team_home_agency_max_length"
+                    android:text="@={viewModel.ics214LiveData.ics214Details.homeAgency}"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/operational_period_start_time_title_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_home_agency"
+                android:text="Operational Period Start Time:" />
+
+            <Button
+                android:id="@+id/ics214_operation_period_start_date"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="@{viewModel.ics214LiveData.ics214Details.formattedOperationalPeriodStartDate}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/operational_period_start_time_title_text"
+                android:layout_height="0dp" />
+
+            <Button
+                android:id="@+id/ics214_operation_period_start_time"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="@{viewModel.ics214LiveData.ics214Details.formattedOperationalPeriodStartTime}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/operational_period_start_time_title_text"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/operational_period_end_time_title_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_operation_period_start_date"
+                android:text="Operational Period End Time:" />
+
+            <Button
+                android:id="@+id/ics214_operation_period_end_date"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:text="@{viewModel.ics214LiveData.ics214Details.formattedOperationalPeriodEndDate}"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/operational_period_end_time_title_text"
+                android:layout_height="0dp" />
+
+            <Button
+                android:id="@+id/ics214_operation_period_end_time"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="@{viewModel.ics214LiveData.ics214Details.formattedOperationalPeriodEndTime}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/operational_period_end_time_title_text"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/prepared_by_label"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_operation_period_end_time"
+                android:text="Prepared By:" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ics214_prepared_by_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/prepared_by_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:endIconMode="clear_text"
+                style="@style/Widget.App.TextInputLayout.Outlined"
+                android:hint="Name">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.ics214LiveData.ics214Details.preparedByName}"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ics214_prepared_by_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_prepared_by_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:endIconMode="clear_text"
+                style="@style/Widget.App.TextInputLayout.Outlined"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/ics214_prepared_by_position_title_max_length"
+                android:hint="Position">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="@integer/ics214_prepared_by_position_title_max_length"
+                    android:text="@={viewModel.ics214LiveData.ics214Details.preparedByPositionTitle}"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

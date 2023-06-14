@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="o"
+    tools:ignore="RtlSymmetry">
+
+    <data>
+        <variable
+            name="user"
+            type="com.randomvoids.emassistant.view.ui.profile.UserProfileViewModel"/>
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="56dp">
+
+            <FrameLayout
+                android:id="@+id/profile_image_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    android:layout_marginTop="30dp"
+                    app:cardCornerRadius="60dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/anonymous_profile_image"
+                        android:id="@+id/profile_image"
+                        android:scaleType="centerCrop"
+                        tools:ignore="ContentDescription" />
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:elevation="12dp"
+                    android:layout_gravity="end|bottom"
+                    android:id="@+id/edit_image"
+                    android:src="@drawable/ic_edit_icon_24dp"
+                    tools:ignore="ContentDescription"
+                    app:tint="@color/colorAccent"
+                    app:gone="@{true}" />
+            </FrameLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user_first_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_image_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:endIconMode="clear_text"
+                android:layout_margin="15dp"
+                android:hint="FirstName">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={user.userLiveData.firstName}"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user_last_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_first_name_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:endIconMode="clear_text"
+
+                android:layout_margin="15dp"
+                android:hint="LastName">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={user.userLiveData.lastName}"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:id="@+id/human_signature_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_last_name_input">
+
+                <LinearLayout
+                    android:id="@+id/human_signature_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:minHeight="150dp"
+                    android:padding="15dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/signatureImageViewer"
+                        android:background="@drawable/border"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="   Signature   "
+                    android:layout_marginLeft="15dp"
+                    android:background="#ffffff"
+                    android:textSize="17sp" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/get_human_signature"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:text="Edit Signature"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/human_signature_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

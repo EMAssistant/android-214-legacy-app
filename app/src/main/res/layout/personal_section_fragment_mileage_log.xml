@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="o"
+    tools:ignore="RtlSymmetry">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.randomvoids.emassistant.view.ui.profile.mileagelog.MileageLogViewModel" />
+        <variable
+            name="adapter"
+            type="com.randomvoids.emassistant.view.adapter.MileageLogListItemAdapter"/>
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="56dp"
+                tools:context=".MainActivity">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mileage_log_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                app:layoutManager="LinearLayoutManager"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintBottom_toTopOf="@id/new_log_item_button"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/list_item_mileage_log_entry" />
+
+            <Button
+                android:id="@+id/new_log_item_button"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:text="NEW"
+                app:layout_constraintTop_toBottomOf="@id/mileage_log_recycler_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/standard_layout_horizontal_margin"
+                android:onClick="@{(v) -> viewModel.onNewMileageLogEntryButtonClick(v)}"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

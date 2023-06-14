@@ -1,0 +1,404 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "2e85aacdaa4e32d1a93421ad49513921",
+    "entities": [
+      {
+        "tableName": "User",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_uuid` TEXT, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `profile_image_file_location` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userUuid",
+            "columnName": "user_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "first_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastName",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "profileImageFileLocation",
+            "columnName": "profile_image_file_location",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "user_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "incidents",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`incident_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `incident_uuid` TEXT, `incident_name` TEXT NOT NULL, `incident_number` TEXT, `incident_start_date_time` INTEGER NOT NULL, `incident_end_date_time` INTEGER, `incident_summary` TEXT, `location_description` TEXT, `created_by_uuid` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "incident_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uuid",
+            "columnName": "incident_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "incidentName",
+            "columnName": "incident_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "incidentNumber",
+            "columnName": "incident_number",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "incidentStartDateTime",
+            "columnName": "incident_start_date_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endTime",
+            "columnName": "incident_end_date_time",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "incidentSummary",
+            "columnName": "incident_summary",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "locationDescription",
+            "columnName": "location_description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdByUuid",
+            "columnName": "created_by_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "incident_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ics_214_details",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ics214_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ics214_uuid` TEXT, `incident_id` INTEGER NOT NULL, `operation_period_start_time` INTEGER NOT NULL, `operation_period_end_time` INTEGER NOT NULL, `team_name` TEXT NOT NULL, `team_ics_position` TEXT NOT NULL, `home_agency` TEXT, `prepared_by_name` TEXT NOT NULL, `prepared_by_position_title` TEXT NOT NULL, `prepared_by_date_time` INTEGER, `is_submitted` INTEGER NOT NULL, `created_by_uuid` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "ics214_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uuid",
+            "columnName": "ics214_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "incidentId",
+            "columnName": "incident_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "operationalPeriodStartTime",
+            "columnName": "operation_period_start_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "operationalPeriodEndTime",
+            "columnName": "operation_period_end_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "teamName",
+            "columnName": "team_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "teamIcsPosition",
+            "columnName": "team_ics_position",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "homeAgency",
+            "columnName": "home_agency",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "preparedByName",
+            "columnName": "prepared_by_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preparedByPositionTitle",
+            "columnName": "prepared_by_position_title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preparedByDateTime",
+            "columnName": "prepared_by_date_time",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isSubmitted",
+            "columnName": "is_submitted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdByUuid",
+            "columnName": "created_by_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ics214_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ics_resources",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`resource_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `resource_uuid` TEXT, `ics214_id` INTEGER NOT NULL, `resource_name` TEXT NOT NULL, `ics_position` TEXT NOT NULL, `home_agency` TEXT NOT NULL, `resource_link_uuid` TEXT, `created_by_uuid` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "resourceId",
+            "columnName": "resource_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "resourceUuid",
+            "columnName": "resource_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ics214Id",
+            "columnName": "ics214_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "resource_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "icsPosition",
+            "columnName": "ics_position",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "homeAgency",
+            "columnName": "home_agency",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "resourceLinkedUuid",
+            "columnName": "resource_link_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createdByUuid",
+            "columnName": "created_by_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "resource_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ics214_activity_log_entries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activity_log_entry_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `activity_log_entry_uuid` TEXT, `ics214_id` INTEGER NOT NULL, `activity_time` INTEGER NOT NULL, `activity_details` TEXT NOT NULL, `created_by_uuid` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "activityLogEntryId",
+            "columnName": "activity_log_entry_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activityLogEntryUuid",
+            "columnName": "activity_log_entry_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ics214Id",
+            "columnName": "ics214_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "activity_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activityDetails",
+            "columnName": "activity_details",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdByUuid",
+            "columnName": "created_by_uuid",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "activity_log_entry_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "mileage_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mileage_log_entry_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `server_side_id` INTEGER, `incident_id` INTEGER, `drive_date` INTEGER NOT NULL, `odometer_start` INTEGER, `miles_driven` REAL NOT NULL, `purpose` TEXT NOT NULL, `start_location` TEXT, `end_location` TEXT, `last_modified_at` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "mileageLogEntryId",
+            "columnName": "mileage_log_entry_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serverSideId",
+            "columnName": "server_side_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "incidentId",
+            "columnName": "incident_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "driveDate",
+            "columnName": "drive_date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "odometerStart",
+            "columnName": "odometer_start",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "milesDriven",
+            "columnName": "miles_driven",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "purpose",
+            "columnName": "purpose",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startLocation",
+            "columnName": "start_location",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "endLocation",
+            "columnName": "end_location",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastModifiedAt",
+            "columnName": "last_modified_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "mileage_log_entry_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2e85aacdaa4e32d1a93421ad49513921')"
+    ]
+  }
+}

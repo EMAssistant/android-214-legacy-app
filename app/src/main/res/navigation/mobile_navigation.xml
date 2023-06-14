@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_my_ics_214s">
+
+    <fragment
+        android:id="@+id/navigation_incident_list"
+        android:name="com.randomvoids.emassistant.view.ui.incidents.IncidentListFragment"
+        android:label="@string/title_incidents_list"
+        tools:layout="@layout/fragment_incident_list" />
+
+    <fragment
+        android:id="@+id/navigation_live_incident"
+        android:name="com.randomvoids.emassistant.view.ui.activeincident.HomeFragment"
+        android:label="@string/title_live_incident_view"
+        tools:layout="@layout/fragment_live_incident" />
+
+    <fragment
+        android:id="@+id/navigation_my_ics_214s"
+        android:name="com.randomvoids.emassistant.view.ui.myforms.ICS214ListFragment"
+        android:label="@string/title_ICS_214_list"
+        tools:layout="@layout/fragment_my_ics_214_list">
+        <action
+            android:id="@+id/action_navigate_to_ics_214_editor"
+            app:destination="@id/navigation_ics_214_editor_container"
+            app:exitAnim="@null"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_ics_214_editor_container"
+        android:name="com.randomvoids.emassistant.view.ui.icsformeditors.ics214.ICS214FormContainerFragment"
+        android:label="214: {incidentName}"
+        tools:layout="@layout/fragment_ics_214_editor_view_container">
+        <argument
+            android:name="ICS214Id"
+            app:argType="integer" />
+        <argument
+            android:name="incidentName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigate_to_ics_214_details_editor"
+            app:destination="@id/navigation_ics_214_details_editor"
+            app:exitAnim="@null"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_ics_214_details_editor"
+        android:name="com.randomvoids.emassistant.view.ui.icsformeditors.ics214.ICS214DetailsEditorFragment"
+        android:label="214: {incidentName}"
+        tools:layout="@layout/ics_214_fragment_details_editor">
+        <argument
+            android:name="ICS214Id"
+            app:argType="integer" />
+        <argument
+            android:name="incidentName"
+            app:argType="string" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_personal_section_view_pager_container"
+        android:name="com.randomvoids.emassistant.view.ui.profile.ProfilePagerContainerFragment"
+        android:label="Personal Data"
+        tools:layout="@layout/personal_section_fragment_view_pager_container">
+        <action
+            android:id="@+id/action_navigate_to_personal_profile_view"
+            app:destination="@id/navigation_personal_profile_view"
+            app:exitAnim="@null"/>
+        <action
+            android:id="@+id/action_navigate_to_personal_profile_editor"
+            app:destination="@id/navigation_personal_profile_edit"
+            app:exitAnim="@null"/>
+        <action
+            android:id="@+id/action_navigate_to_personal_profile_login"
+            app:destination="@id/navigation_personal_profile_login"
+            app:exitAnim="@null"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_personal_profile_view"
+        android:name="com.randomvoids.emassistant.view.ui.profile.PersonalProfileFragment"
+        android:label="@string/title_personal_profile_view"
+        tools:layout="@layout/fragment_personal_profile_view">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_personal_profile_edit"
+        android:name="com.randomvoids.emassistant.view.ui.profile.PersonalProfileEditFragment"
+        android:label="@string/title_personal_profile_edit"
+        tools:layout="@layout/fragment_personal_profile_edit" />
+
+    <fragment
+        android:id="@+id/navigation_personal_profile_login"
+        android:name="com.randomvoids.emassistant.view.ui.profile.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_personal_profile_login" />
+
+</navigation>

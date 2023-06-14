@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="o"
+    tools:ignore="RtlSymmetry">
+
+    <data>
+        <variable
+            name="incident"
+            type="com.randomvoids.emassistant.model.Incident"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/incident_list_item"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/incident_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{incident.incidentName}"
+            tools:text="Tropical Storm Incident"/>
+
+        <TextView
+            android:id="@+id/incident_start_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{incident.getIncidentListFormattedTime()}"
+            tools:text="the time"/>
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="o"
+    tools:ignore="RtlSymmetry">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.randomvoids.emassistant.view.ui.myforms.NewICS214DialogViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="New ICS 214"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:scaleType="center"
+            android:background="@color/dialogHeaderBg"
+            android:textAppearance="@style/Headline4"
+            android:paddingStart="@dimen/margin_medium"
+            android:contentDescription="New ICS 214" />
+        <EditText
+            android:id="@+id/new_incident_name"
+            android:inputType="textCapSentences|textAutoCorrect"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif"
+            android:maxLength="@integer/incident_name_max_length"
+            android:text="@={viewModel.incidentliveData.incidentName}"
+            android:hint="Incident Name"/>
+    </LinearLayout>
+</layout>

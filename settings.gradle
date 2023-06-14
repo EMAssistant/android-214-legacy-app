@@ -1,0 +1,2 @@
+include ':app', ':signature-pad'
+rootProject.name = "EM Assistant"

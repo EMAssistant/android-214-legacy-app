@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="incident_name_max_length">34</integer> <!-- ICS 214 form, all lower case = 35 characters, all uppercase = 28 characters -->
+    <integer name="ics214_team_name_max_length">30</integer> <!-- ICS 214 form, all lower case = 32, all uppercase = 25 characters -->
+    <integer name="ics214_team_ics_position_max_length">30</integer> <!-- ICS 214 form, all lower case = 32, all uppercase = 25 characters -->
+    <integer name="ics214_team_home_agency_max_length">30</integer> <!-- ICS 214 form, all lower case = 32, all uppercase = 25 characters -->
+    <integer name="ics214_resource_name_max_length">30</integer> <!-- ICS 214 form, all lower case = 32, all uppercase = 26 characters -->
+    <integer name="ics214_resource_position_max_length">30</integer> <!-- ICS 214 form, all lower case = 32, all uppercase = 26 characters -->
+    <integer name="ics214_resource_home_agency_max_length">30</integer> <!-- ICS 214 form, all lower case = 32, all uppercase = 26 characters -->
+    <integer name="ics214_notable_activity_max_length">128</integer> <!-- ICS 214 form, all lower case = 93, all uppercase = 64 characters -->
+    <integer name="ics214_prepared_by_position_title_max_length">18</integer> <!-- ICS 214 form, all lower case = 19, all uppercase = 15 characters -->
+</resources>

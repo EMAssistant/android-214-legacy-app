@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="o"
+    tools:ignore="RtlSymmetry">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.randomvoids.emassistant.view.ui.icsformeditors.ics214.ICS214EditorViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="56dp">
+
+            <TextView
+                android:id="@+id/ics214_details_label"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:text="214 Details"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="@dimen/standard_layout_horizontal_margin"
+                />
+
+            <TextView
+                android:id="@+id/incident_name"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_details_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{@string/ics_incident_name_and_name(viewModel.ics214LiveData.incident.incidentName)}"
+                android:layout_marginStart="@dimen/margin_big"
+                tools:text="Incident Name: INCIDENT NAME"/>
+
+            <TextView
+                android:id="@+id/team_name"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/incident_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/margin_big"
+                android:text="@{@string/ics_team_name_title_and_name(viewModel.ics214LiveData.ics214Details.teamName)}"
+                tools:text="Team Name: TEAM NAME"/>
+
+            <TextView
+                android:id="@+id/team_ics_position"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/margin_big"
+                android:text="@{@string/ics_position_and_position_name(viewModel.ics214LiveData.ics214Details.teamIcsPosition)}"
+                tools:text="Team ICS Position: ICS POSITION"/>
+
+            <TextView
+                android:id="@+id/ics214_home_agency"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_ics_position"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/margin_big"
+                android:text="@{@string/ics_home_agency_and_agency_name(viewModel.ics214LiveData.ics214Details.homeAgency)}"
+                tools:text="Home Agency: HOME AGENCY"/>
+
+            <View
+                android:id="@+id/break_before_operational_period"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_home_agency"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="#000000"
+                android:layout_marginVertical="@dimen/margin_medium"/>
+
+            <TextView
+                android:id="@+id/ics214_operation_period_label"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/break_before_operational_period"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginVertical="@dimen/margin_medium"
+                android:text="Operational Period"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="@dimen/standard_layout_horizontal_margin"/>
+
+            <TextView
+                android:id="@+id/ics214_operation_period_start_time"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_operation_period_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginEnd="@dimen/standard_layout_horizontal_margin"
+                android:text="@{@string/ics_operational_period_start_title_and_time(viewModel.ics214LiveData.ics214Details.formattedOperationalPeriodStartDate, viewModel.ics214LiveData.ics214Details.formattedOperationalPeriodStartTime)}"
+                tools:text="Start Date"/>
+
+            <TextView
+                android:id="@+id/ics214_operation_period_end_time"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_operation_period_start_time"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginEnd="@dimen/standard_layout_horizontal_margin"
+                android:text="@{@string/ics_operational_period_end_title_and_time(viewModel.ics214LiveData.ics214Details.formattedOperationalPeriodEndDate, viewModel.ics214LiveData.ics214Details.formattedOperationalPeriodEndTime)}"
+                tools:text="End Date"/>
+
+            <View
+                android:id="@+id/break_after_operational_period"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ics214_operation_period_end_time"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="#000000"
+                android:layout_marginVertical="@dimen/margin_medium"/>
+
+            <TextView
+                android:id="@+id/prepared_by_label"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/break_after_operational_period"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginVertical="@dimen/margin_medium"
+                android:text="Prepared By"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="@dimen/standard_layout_horizontal_margin"
+                />
+
+            <TextView
+                android:id="@+id/prepared_by_name"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/prepared_by_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/standard_layout_horizontal_margin"
+                android:layout_marginStart="@dimen/margin_big"
+                android:text="@{@string/ics_form_prepared_by_title_and_name(viewModel.ics214LiveData.ics214Details.preparedByName)}"
+                tools:text="By: PREPARED BY"/>
+
+            <TextView
+                android:id="@+id/ics214_prepared_by_position"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/prepared_by_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/standard_layout_horizontal_margin"
+                android:layout_marginStart="@dimen/margin_big"
+                android:text="@{@string/ics_form_prepared_by_position_title_and_position(viewModel.ics214LiveData.ics214Details.preparedByPositionTitle)}"
+                tools:text="Prepared By Position: PREPARED BY POSITION"/>
+
+            <Button
+                android:id="@+id/export_to_pdf"
+                android:layout_width="wrap_content"
+                android:text="Export to PDF"
+                app:layout_constraintTop_toBottomOf="@id/ics214_prepared_by_position"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/standard_layout_horizontal_margin"
+                android:layout_height="wrap_content" />
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:elevation="2dp"
+                android:background="#90000000"
+                app:gone="@{!viewModel.savingPDF}"
+                tools:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <ProgressBar
+                android:id="@+id/saving_progress_Bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                app:gone="@{!viewModel.savingPDF}"
+                android:minHeight="100dp"
+                android:minWidth="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/pdf_saving_text"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:gone="@{!viewModel.savingPDF}"
+                android:elevation="2dp"
+                android:textSize="30sp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center"
+                android:paddingTop="150dp"
+                android:text="Saving 214 to PDF..." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

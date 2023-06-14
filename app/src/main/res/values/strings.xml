@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">EM Assistant</string>
+    <string name="title_incidents_list">All Incidents</string>
+    <string name="title_live_incident_view">Active Incident</string>
+    <string name="title_ICS_214_list">My 214\'s</string>
+    <string name="title_personal_section_container">Personal</string>
+    <string name="title_personal_profile_view">Profile</string>
+    <string name="title_personal_profile_edit">Edit Profile</string>
+    <string name="home_agency">Home Agency</string>
+    <string name="team_ics_position">Team ICS Position</string>
+    <string name="ics_incident_name_title">Incident Name</string>
+    <string name="ics_incident_name_and_name">Incident Name: %s</string>
+    <string name="ics_team_name_title">Team Name</string>
+    <string name="ics_team_name_title_and_name">Team Name: %s</string>
+    <string name="ics_position_and_position_name">Team ICS Position: %s</string>
+    <string name="ics_home_agency_and_agency_name">Home Agency: %s</string>
+    <string name="ics_operational_period_start_title_and_time">Start Time: %s - %s</string>
+    <string name="ics_operational_period_end_title_and_time">End Time: %s - %s</string>
+    <string name="ics_form_prepared_by_title_and_name">Name: %s</string>
+    <string name="ics_form_prepared_by_position_title_and_position">Position: %s</string>
+    <string name="ics_resource_name_and_name">Resource: %s</string>
+
+
+    <string name="google_login_button_text">Sign in with Google</string>
+    <string name="signin_use_org_account">Please sign in with your organization\'s email address.</string>
+    <string name="select_account_dialog_title">Choose your account</string>
+    <string name="no_account_found_message">No Google account found</string>
+    <string name="connection_error_message">Connection error - could not log in</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="title_my_forms_tab">My Forms</string>
+
+    <string name="mileage_log_purpose">Purpose: %s</string>
+    <string name="mileage_log_miles_driven">Miles driven: %smi</string>
+    <string name="mileage_log_odometer_start">Start odometer: %s</string>
+    <string name="mileage_log_start_location">Start: %s</string>
+    <string name="mileage_log_end_location">End: %s</string>
+
+    <string-array name="gps_tracking_activities">
+        <item>"GSAR"</item>
+        <item>"Driving"</item>
+        <item>"K9"</item>
+        <item>"FAST/RBO"</item>
+    </string-array>
+</resources>

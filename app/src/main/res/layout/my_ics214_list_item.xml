@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="o"
+    tools:ignore="RtlSymmetry">
+
+    <data>
+        <variable
+            name="ics214"
+            type="com.randomvoids.emassistant.model.ICS214WithActivityLogAndResources"/>
+        <variable
+            name="viewModel"
+            type="com.randomvoids.emassistant.view.ui.myforms.ICS214ListViewModel" />
+    </data>
+    <LinearLayout
+        android:minHeight="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginVertical="@dimen/margin_small"
+        android:id="@+id/incident_list_item"
+        android:orientation="vertical"
+        android:onClick="@{(v) -> viewModel.onActivityLogEntryEditButtonClick(v, ics214.ics214Details.id, ics214.incident.incidentName)}"
+        android:transitionName="@{ics214.incident.incidentName}"
+        >
+
+        <TextView
+            android:id="@+id/incident_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Subtitle1"
+            android:text="@{ics214.incident.incidentName}"
+            tools:text="Tropical Storm Incident"/>
+
+        <TextView
+            android:id="@+id/incident_start_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ics214.ics214Details.operationalPeriodStartTime.toString()}"
+            tools:text="the time"/>
+    </LinearLayout>
+
+</layout>
